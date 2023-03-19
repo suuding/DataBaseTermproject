@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <script>
+            function showcreation() {
+                var a='<table><thead><tr><th>maker model type</th></tr></thead>\
+                    {% for p in product %}<tr><td>{{ p.maker }}</td><td>{{ p.model }}</td><td>{{ p.type }}</td>\
+                    </tr>{% endfor %}</table><br>\
+                    <table><thead><tr><th>model speed ram hd price</th></tr></thead>\
+                    {% for p in pc %}<tr><td>{{ p.model }}</td><td>{{ p.speed }}</td><td>{{ p.ram }}</td>\
+                    <td>{{ p.hd }}</td><td>{{ p.price }}</td></tr>{% endfor %}</table><br>\
+                    <table><thead><tr><th>model speed ram hd screen price</th></tr></thead>\
+                    {% for l in laptop %}<tr><td>{{ l.model }}</td><td>{{ l.speed }}</td><td>{{ l.ram }}</td>\
+                    <td>{{ l.hd }}</td><td>{{ l.screen }}</td><td>{{ l.price }}</td></tr>{% endfor %}</table><br>\
+                    <table><thead><tr><th>model color type price</th></tr></thead>\
+                    {% for p in printer %}<tr><td>{{ p.model }}</td><td>{{ p.color }}</td><td>{{ p.type }}</td>\
+                    <td>{{ p.price }}</td></tr>{% endfor %}</table><br>';
+                document.getElementById('table').innerHTML = a;
+            }
+
+            function showsql1() {
+                var a = '<table><thead><tr><th>average hd</th></tr></thead>\
+                    {% for i in query1 %}<tr><td>{{ i.avg_hd }}</td>\
+                    </tr>{% endfor %}</table>';
+                document.getElementById('show').innerHTML = a;
+            }
+            
+            function showsql2() {
+                var a = '<table><thead><tr><th>maker</th>\
+                        <th>average speed</th></tr></thead>\
+                        {% for i in query2 %}<tr><td>{{ i.maker }}</td>\
+                        <td>{{ i.avg_speed }}</td></tr>{% endfor %}</table>';
+                document.getElementById('show').innerHTML = a;
+            }  
+
+            function showsql3() {
+                var a = '<table><thead><tr><th>model</th><th>maker</th>\
+                        <th>price</th></tr></thead>{% for i in query3 %}\
+                        <tr><td>{{ i.model }}</td><td>{{ i.maker }}</td>\
+                        <td>{{ i.price }}</td></tr>{% endfor %}</table>';
+                document.getElementById('show').innerHTML = a;
+            }  
+
+            function showsql4() {
+                var a = '<table><thead><tr><th>model</th><th>maker</th>\
+                        <th>price</th></tr></thead>{% for i in query4 %}\
+                        <tr><td>{{ i.model }}</td><td>{{ i.maker }}</td>\
+                        <td>{{ i.price }}</td></tr>{% endfor %}</table>';
+                document.getElementById('show').innerHTML = a;
+            }  
+          </script>
+
+        <h2>Computer Database</h2>
+
+        <button onClick="showcreation()">create table</button>
+
+        <button onclick="location.href='./product'">insert Product</button>
+        <button onclick="location.href='./pc'">insert Pc</button>
+        <button onclick="location.href='./laptop'">insert Laptop</button>
+        <button onclick="location.href='./printer'">insert Printer</button>
+
+        <button onclick="showsql1()">SQL1</button>
+        <button onclick="showsql2()">SQL2</button>
+        <button onclick="showsql3()">SQL3</button>
+        <button onclick="showsql4()">SQL4</button>
+
+
+        <br>
+        <br>
+
+        <h2>result</h2>
+        <div id="show"></div>
+        <br>
+        <div id="table"></div>
+        
+    </body>
+</html>
